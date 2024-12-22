@@ -3,36 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Dhruv Kamath - Portfolio</title>
     <style>
-        /* Base styling */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f9f9f9;
         }
 
         header {
             background: linear-gradient(135deg, #6C63FF, #4F46E5);
             color: white;
-            padding: 2rem;
             text-align: center;
+            padding: 2rem 1rem;
+            position: relative;
         }
 
         header h1 {
             margin: 0;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         header p {
-            margin: 0.5rem 0 0;
             font-size: 1.2rem;
         }
 
         nav {
             background: #333;
-            color: white;
             text-align: center;
             padding: 0.5rem;
         }
@@ -48,131 +46,277 @@
             color: #6C63FF;
         }
 
-        section {
-            padding: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            color: #4F46E5;
-        }
-
-        .about, .projects, .contact {
-            margin-bottom: 2rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project {
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            overflow: hidden;
+        .section {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .project img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
+        .section h2 {
+            text-align: center;
+            color: #4F46E5;
+            margin-bottom: 1rem;
         }
 
-        .project h3 {
+        .timeline {
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 4px;
+            height: 100%;
+            background: #ddd;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 1rem 0;
+        }
+
+        .timeline-item h3 {
             margin: 0;
-            padding: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #333;
         }
 
-        .project p {
-            margin: 0;
-            padding: 0 1rem 1rem;
+        .timeline-item p {
+            margin: 0.5rem 0 0;
             font-size: 1rem;
             color: #555;
         }
 
+        .timeline-item-left,
+        .timeline-item-right {
+            width: 45%;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-item-left {
+            float: left;
+            clear: left;
+            text-align: right;
+        }
+
+        .timeline-item-right {
+            float: right;
+            clear: right;
+        }
+
         footer {
-            background: #333;
-            color: white;
             text-align: center;
             padding: 1rem;
+            background: #333;
+            color: white;
         }
 
-        footer p {
-            margin: 0;
+        /* CLI Button */
+        #cli-mode-btn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            background: #4F46E5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
         }
 
-        footer a {
-            color: #6C63FF;
-            text-decoration: none;
+        #cli-mode-btn:hover {
+            background: #6C63FF;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        /* CLI Mode */
+        #cli-mode {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            color: green;
+            font-family: "Courier New", monospace;
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .line {
+            margin-bottom: 10px;
+        }
+
+        .command {
+            color: lime;
+        }
+
+        #input {
+            width: 100%;
+            background: black;
+            border: none;
+            color: green;
+            outline: none;
+            font-family: "Courier New", monospace;
+            font-size: 16px;
+        }
+
+        .output {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                display: none;
+            }
+
+            .timeline-item-left,
+            .timeline-item-right {
+                width: 100%;
+                float: none;
+                text-align: left;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
     <header>
-        <h1>My Portfolio</h1>
-        <p>Showcasing my skills, projects, and passion</p>
+        <h1>Dhruv V Kamath</h1>
+        <p>Senior Product Manager | Driving Growth and Engagement Through AI</p>
+        <button id="cli-mode-btn">CLI Mode</button>
     </header>
-
-    <!-- Navigation -->
     <nav>
         <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#skills">Skills</a>
     </nav>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2 class="section-title">About Me</h2>
-        <p>Hello! I'm a passionate developer with skills in web development, design, and problem-solving. I enjoy creating clean, functional, and visually appealing websites.</p>
-    </section>
+    <div class="section" id="about">
+        <h2>About Me</h2>
+        <p>I am a Senior Product Manager with 6 years of experience driving growth and engagement across digital platforms. Skilled in optimizing funnels, rapid experimentation, and leveraging data-driven insights to deliver scalable and delightful user experiences. Passionate about crafting customer-centric products that deepen engagement and drive adoption.</p>
+    </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-            <div class="project">
-                <img src="https://via.placeholder.com/400x200" alt="Project 1">
-                <h3>Project 1</h3>
-                <p>A brief description of this project.</p>
+    <div class="section" id="timeline">
+        <h2>Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item timeline-item-left">
+                <h3>Senior Product Manager - Walmart</h3>
+                <p>Oct 2023 – Present</p>
+                <p>Launched a Generative AI chatbot analyzing $130B in expenses; projected to reduce discretionary spending by 5%.</p>
             </div>
-            <div class="project">
-                <img src="https://via.placeholder.com/400x200" alt="Project 2">
-                <h3>Project 2</h3>
-                <p>A brief description of this project.</p>
+            <div class="timeline-item timeline-item-right">
+                <h3>Technical Product Manager - Sandbox AQ</h3>
+                <p>Jun 2022 – Oct 2023</p>
+                <p>Reduced deployment lead time by 50%, leading the GTM launch of an open-source cryptographic platform.</p>
             </div>
-            <div class="project">
-                <img src="https://via.placeholder.com/400x200" alt="Project 3">
-                <h3>Project 3</h3>
-                <p>A brief description of this project.</p>
+            <div class="timeline-item timeline-item-left">
+                <h3>Product Manager - Cuemath</h3>
+                <p>Aug 2020 – Jul 2021</p>
+                <p>Increased monthly revenue by 50% and NPS by 45% through product-led growth strategies.</p>
+            </div>
+            <div class="timeline-item timeline-item-right">
+                <h3>Product Operations Manager - Central Square Foundation</h3>
+                <p>Jun 2018 – Aug 2020</p>
+                <p>Executed an $80M EdTech project, improving learning outcomes by 1.5 grade levels.</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2 class="section-title">Contact Me</h2>
-        <p>If you'd like to collaborate or have any questions, feel free to reach out:</p>
-        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    </section>
+    <div class="section" id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Python, C++, HTML, SQL, R</li>
+            <li>Data Analysis: Tableau, JIRA</li>
+            <li>Product Design: Figma</li>
+            <li>Generative AI and ML</li>
+        </ul>
+    </div>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 My Portfolio | Built with ❤️</p>
+        <p>&copy; 2024 Dhruv V Kamath. Built with ❤️.</p>
     </footer>
 
+    <div id="cli-mode">
+        <div class="line">Welcome to the terminal of Dhruv Kamath!</div>
+        <div class="line">Type <span class="command">help</span> to see the list of commands.</div>
+        <div id="output"></div>
+        <input type="text" id="input" autofocus placeholder="Enter command...">
+    </div>
+
+    <script>
+        const commands = {
+            help: `
+                Available commands:
+                about - Learn about me
+                skills - List my skills
+                work - Show my work experience
+                education - View my education
+                contact - Get my contact info
+                clear - Clear the terminal
+            `,
+            about: "I am a Senior Product Manager with expertise in Generative AI and digital growth strategies.",
+            skills: "Python, JavaScript, HTML, CSS, SQL, R, Tableau, Figma, Generative AI",
+            work: `
+                Walmart - Senior Product Manager (2023-Present)
+                Sandbox AQ - Technical Product Manager (2022-2023)
+                Cuemath - Product Manager (2020-2021)
+            `,
+            education: `
+                MBA - University of Chicago Booth School of Business (2023)
+                B.Tech - National Institute of Technology, Trichy (2016)
+            `,
+            contact: "Email: dkamath0@chicagobooth.edu | Phone: (312) 479-4467",
+            clear: "",
+        };
+
+        const inputField = document.getElementById("input");
+        const outputDiv = document.getElementById("output");
+        const cliMode = document.getElementById("cli-mode");
+        const cliModeBtn = document.getElementById("cli-mode-btn");
+
+        cliModeBtn.addEventListener("click", () => {
+            cliMode.style.display = cliMode.style.display === "block" ? "none" : "block";
+        });
+
+        inputField.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                const input = inputField.value.trim();
+                const commandOutput = commands[input] || `Command not found: ${input}`;
+                if (input === "clear") {
+                    outputDiv.innerHTML = "";
+                } else {
+                    outputDiv.innerHTML += `
+                        <div class="line"><span class="command">&gt; ${input}</span></div>
+                        <div class="line output">${commandOutput}</div>
+                    `;
+                }
+                inputField.value = "";
+                outputDiv.scrollTop = outputDiv.scrollHeight;
+            }
+        });
+    </script>
 </body>
 </html>
