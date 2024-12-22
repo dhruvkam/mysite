@@ -1,138 +1,121 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
 }
 
 header {
-    background: linear-gradient(135deg, #6C63FF, #4F46E5);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: black;
     color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
 }
 
 header h1 {
+    font-size: 20px;
     margin: 0;
-    font-size: 2.5rem;
-}
-
-header p {
-    font-size: 1.2rem;
-}
-
-nav {
-    background: #333;
-    text-align: center;
-    padding: 0.5rem;
-}
-
-nav a {
-    color: white;
-    margin: 0 1rem;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    color: #6C63FF;
-}
-
-.section {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.section h2 {
-    text-align: center;
-    color: #4F46E5;
-    margin-bottom: 1rem;
-}
-
-.timeline {
-    position: relative;
-    padding: 1rem 0;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    width: 4px;
-    height: 100%;
-    background: #ddd;
-    transform: translateX(-50%);
-}
-
-.timeline-item-left,
-.timeline-item-right {
-    width: 45%;
-    padding: 1rem;
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.timeline-item-left {
-    float: left;
-    clear: left;
-    text-align: right;
-}
-
-.timeline-item-right {
-    float: right;
-    clear: right;
-}
-
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #333;
-    color: white;
 }
 
 #cli-mode-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    background: #4F46E5;
-    color: white;
+    background: orange;
+    color: black;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
+    font-size: 14px;
     cursor: pointer;
     border-radius: 5px;
 }
 
-#cli-mode {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background: #f4f4f4;
     height: 100%;
-    background: black;
-    color: green;
-    font-family: "Courier New", monospace;
-    z-index: 1000;
     padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50px;
+    left: 0;
 }
 
-.line {
-    margin-bottom: 10px;
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.command {
-    color: lime;
+.sidebar li {
+    margin-bottom: 15px;
 }
 
-#input {
-    width: 100%;
-    background: black;
-    border: none;
-    color: green;
+.sidebar a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    transition: color 0.2s;
+}
+
+.sidebar a:hover {
+    color: orange;
+}
+
+/* Main Content Area */
+main {
+    margin-left: 250px; /* This ensures content doesn't overlap with sidebar */
+    padding: 20px;
+    overflow-y: auto;
+    width: calc(100% - 250px); /* Adjusts width to account for the sidebar */
+    height: calc(100vh - 50px);
+    margin-top: 50px;
+}
+
+/* Content Sections */
+.content-section {
+    display: none; /* Hide all sections by default */
+}
+
+.content-section.active {
+    display: block; /* Show only the active section */
+}
+
+.content-box {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Sidebar takes full width on smaller screens */
+        height: auto;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        padding: 10px;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    main {
+        margin-left: 0; /* No margin for main content */
+        width: 100%; /* Full width for content */
+        margin-top: 100px;
+    }
+
+    #cli-mode-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
 }

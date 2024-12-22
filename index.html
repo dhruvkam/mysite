@@ -9,67 +9,69 @@
 <body>
     <header>
         <h1>Dhruv Kamath</h1>
-        <p>Senior Product Manager | Driving Growth and Engagement Through AI</p>
+        <div class="hamburger" onclick="toggleSidebar()">☰</div>
         <button id="cli-mode-btn">CLI Mode</button>
     </header>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#timeline">Timeline</a>
-        <a href="#skills">Skills</a>
-    </nav>
+    <div class="container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <ul>
+                <li><a href="#" data-section="about">About</a></li>
+                <li><a href="#" data-section="portfolio">Portfolio</a></li>
+                <li><a href="#" data-section="experiments">Experiments</a></li>
+            </ul>
+        </nav>
 
-    <div class="section" id="about">
-        <h2>About Me</h2>
-        <p>I am a Senior Product Manager with 6 years of experience driving growth and engagement across digital platforms. Skilled in optimizing funnels, rapid experimentation, and leveraging data-driven insights to deliver scalable and delightful user experiences. Passionate about crafting customer-centric products that deepen engagement and drive adoption.</p>
+        <!-- Main Content Area -->
+        <main id="main-content">
+            <section id="about" class="content-section">
+                <div class="content-box">
+                    <h1>About Me</h1>
+                    <p>I am a Senior Product Manager with expertise in Generative AI and digital growth strategies.</p>
+                    <h3>Timeline</h3>
+                    <ul>
+                        <li><strong>Walmart</strong> (2023 - Present): Senior Product Manager</li>
+                        <li><strong>Sandbox AQ</strong> (2022 - 2023): Technical Product Manager</li>
+                        <li><strong>Cuemath</strong> (2020 - 2021): Product Manager</li>
+                        <li><strong>Central Square Foundation</strong> (2018 - 2020): Program Manager</li>
+                        <li><strong>Teach for India</strong> (2016 - 2018): High School Teacher</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="portfolio" class="content-section">
+                <div class="content-box">
+                    <h1>Portfolio</h1>
+                    <div class="project">
+                        <h3>Generative AI Chatbot</h3>
+                        <p>Built a chatbot analyzing $130B in expenses for Walmart, improving efficiency by 15%.</p>
+                    </div>
+                    <div class="project">
+                        <h3>Cryptographic Platform</h3>
+                        <p>Launched a cryptographic platform at Sandbox AQ, reducing deployment lead times by 50%.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experiments" class="content-section">
+                <div class="content-box">
+                    <h1>Experiments</h1>
+                    <div class="experiment">
+                        <h3>Failed Idea #57</h3>
+                        <p>An app to track coffee intake — turned out people don't care to measure caffeine!</p>
+                    </div>
+                    <div class="experiment">
+                        <h3>Open Project: TaskSync</h3>
+                        <p>A task management app to sync daily goals with calendars, currently in beta.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <div class="section" id="timeline">
-        <h2>Timeline</h2>
-        <div class="timeline">
-            <div class="timeline-item timeline-item-left">
-                <h3>Senior Product Manager - Walmart</h3>
-                <p>Oct 2023 – Present</p>
-                <p>Launched a Generative AI chatbot analyzing $130B in expenses; projected to reduce discretionary spending by 5%.</p>
-            </div>
-            <div class="timeline-item timeline-item-right">
-                <h3>Technical Product Manager - Sandbox AQ</h3>
-                <p>Jun 2022 – Oct 2023</p>
-                <p>Reduced deployment lead time by 50%, leading the GTM launch of an open-source cryptographic platform.</p>
-            </div>
-            <div class="timeline-item timeline-item-left">
-                <h3>Product Manager - Cuemath</h3>
-                <p>Aug 2020 – Jul 2021</p>
-                <p>Increased monthly revenue by 50% and NPS by 45% through product-led growth strategies.</p>
-            </div>
-            <div class="timeline-item timeline-item-right">
-                <h3>Product Operations Manager - Central Square Foundation</h3>
-                <p>Jun 2018 – Aug 2020</p>
-                <p>Executed an $80M EdTech project, improving learning outcomes by 1.5 grade levels.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="section" id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python, C++, HTML, SQL, R</li>
-            <li>Data Analysis: Tableau, JIRA</li>
-            <li>Product Design: Figma</li>
-            <li>Generative AI and ML</li>
-        </ul>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Dhruv Kamath. Built with ❤️.</p>
-    </footer>
-
-    <div id="cli-mode">
-        <div class="line">Welcome to the terminal of Dhruv Kamath!</div>
-        <div class="line">Type <span class="command">help</span> to see the list of commands.</div>
-        <div id="output"></div>
-        <input type="text" id="input" autofocus placeholder="Enter command...">
-    </div>
-
+    <script src="jquery.min.js"></script>
+    <script src="jquery.scrollTo.min.js"></script>
+    <script src="script.js"></script>
     <script src="cli.js"></script>
 </body>
 </html>

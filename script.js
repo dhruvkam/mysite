@@ -1,67 +1,23 @@
-// CLI functionality and scrolling interaction
-const commands = {
-    help: `Available commands:<br>
-    - <span class='command'>about</span>: Learn about me<br>
-    - <span class='command'>skills</span>: List my skills<br>
-    - <span class='command'>work</span>: Show my work experience<br>
-    - <span class='command'>education</span>: View my education<br>
-    - <span class='command'>contact</span>: Get my contact info<br>
-    - <span class='command'>clear</span>: Clear the terminal<br>
-    - <span class='command'>exit</span>: Exit the CLI and return to the main page`,
-    about: "I am a Senior Product Manager with expertise in Generative AI and digital growth strategies.",
-    clear: "",
-    exit: "Exiting CLI mode... Redirecting to the main page.",
-};
+// Handle navigation between sections
+const links = document.querySelectorAll(".sidebar a");
+const sections = document.querySelectorAll(".content-section");
 
-// Scroll-triggered animations
-document.addEventListener("scroll", () => {
-    const panels = document.querySelectorAll(".panel");
-    const scrollPosition = window.scrollY;
-    const windowHeight = window.innerHeight;
+// Add click event listener for navigation links
+links.forEach(link => {
+    link.addEventListener("click", event => {
+        event.preventDefault();
+        const sectionId = link.dataset.section;
 
-    panels.forEach((panel) => {
-        const panelTop = panel.offsetTop;
-        const panelHeight = panel.offsetHeight;
+        // Hide all sections
+        sections.forEach(section => {
+            section.classList.remove("active");
+        });
 
-        if (scrollPosition + windowHeight / 2 > panelTop && scrollPosition < panelTop + panelHeight) {
-            panel.classList.add("active");
-        } else {
-            panel.classList.remove("active");
-        }
+        // Show the selected section
+        const activeSection = document.getElementById(sectionId);
+        activeSection.classList.add("active");
     });
 });
 
-// CLI functionality
-const inputField = document.getElementById("input");
-const outputDiv = document.getElementById("output");
-const cliMode = document.getElementById("cli-mode");
-const cliModeBtn = document.getElementById("cli-mode-btn");
-
-cliModeBtn.addEventListener("click", () => {
-    cliMode.style.display = "block";
-});
-
-inputField.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-        const input = inputField.value.trim();
-        const commandOutput = commands[input] || `Command not found: ${input}`;
-        if (input === "clear") {
-            outputDiv.innerHTML = "";
-        } else if (input === "exit") {
-            outputDiv.innerHTML += `
-                <div class="line"><span class="command">&gt; ${input}</span></div>
-                <div class="line output">${commandOutput}</div>
-            `;
-            setTimeout(() => {
-                cliMode.style.display = "none";
-            }, 1000);
-        } else {
-            outputDiv.innerHTML += `
-                <div class="line"><span class="command">&gt; ${input}</span></div>
-                <div class="line output">${commandOutput}</div>
-            `;
-        }
-        inputField.value = "";
-        outputDiv.scrollTop = outputDiv.scrollHeight;
-    }
-});
+// Default Section
+document.getElementById("about").classList.add("active");
