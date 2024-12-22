@@ -1,10 +1,178 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My GitHub Pages Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        /* Base styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6C63FF, #4F46E5);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #6C63FF;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #4F46E5;
+        }
+
+        .about, .projects, .contact {
+            margin-bottom: 2rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .project img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .project h3 {
+            margin: 0;
+            padding: 1rem;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .project p {
+            margin: 0;
+            padding: 0 1rem 1rem;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer a {
+            color: #6C63FF;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website</h1>
-    <p>This is hosted on GitHub Pages!</p>
+
+    <!-- Header -->
+    <header>
+        <h1>My Portfolio</h1>
+        <p>Showcasing my skills, projects, and passion</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Me</h2>
+        <p>Hello! I'm a passionate developer with skills in web development, design, and problem-solving. I enjoy creating clean, functional, and visually appealing websites.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project">
+                <img src="https://via.placeholder.com/400x200" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>A brief description of this project.</p>
+            </div>
+            <div class="project">
+                <img src="https://via.placeholder.com/400x200" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>A brief description of this project.</p>
+            </div>
+            <div class="project">
+                <img src="https://via.placeholder.com/400x200" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>A brief description of this project.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <p>If you'd like to collaborate or have any questions, feel free to reach out:</p>
+        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 My Portfolio | Built with ❤️</p>
+    </footer>
+
 </body>
 </html>
