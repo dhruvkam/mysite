@@ -4,6 +4,7 @@ body {
     font-family: "Courier New", monospace;
     background-color: black;
     color: green;
+    font-size: 1.2rem
 }
 
 #cli-mode {

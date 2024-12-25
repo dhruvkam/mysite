@@ -1,53 +1,59 @@
+// Command Definitions
 const commands = {
-    help: `Available commands:\n
-    - about: Learn about me\n
-    - skills: List my skills\n
-    - work: Show my work experience\n
-    - education: View my education\n
-    - contact: Get my contact info\n
-    - clear: Clear the terminal\n
-    - exit: Exit the CLI and return to the main page`,
-    about: "I am a Senior Product Manager with expertise in Generative AI and digital growth strategies.",
-    skills: `
-Technical Skills:\n
-- Python, JavaScript, HTML, CSS, SQL, R\n
-- Data Tools: Tableau, JIRA\n
-- Design Tools: Figma\n
-- Specialized: Generative AI and Machine Learning`,
-    work: `Work Experience:\n
-- Walmart: Senior Product Manager (2023-Present)\n
-- Sandbox AQ: Technical Product Manager (2022-2023)\n
-- Cuemath: Product Manager, Growth and Monetization (2020-2021)\n
-- CentralSquare: Program Manager (2018-2020)\n
-- Teach for India: High School Teacher (2016-2018)`,
-    education: `Education:\n
-- MBA - University of Chicago Booth School of Business (2023)\n
-- B.Tech - National Institute of Technology, Trichy (2016)`,
-    contact: `Contact Info:\n
-- Email: example@domain.com\n
-- Phone: 123-456-7890`,
+    help: `
+    Available commands:<br>
+    <ul>
+        <li><span class='command' data-command="about">about</span>: Learn about me</li>
+        <li><span class='command' data-command="skills">skills</span>: List my skills</li>
+        <li><span class='command' data-command="work">work</span>: Show my work experience</li>
+        <li><span class='command' data-command="education">education</span>: View my education</li>
+        <li><span class='command' data-command="contact">contact</span>: Get my contact info</li>
+        <li><span class='command' data-command="clear">clear</span>: Clear the terminal</li>
+        <li><span class='command' data-command="exit">exit</span>: Refresh the page</li>
+    </ul>`,
+    about: "I am a Senior Product Manager passionate about solving complex problems with first principles and collaborating with diverse teams.",
+    skills: "Skills: Python, JavaScript, CSS, HTML, SQL, R, Generative AI, Machine Learning, Data Analysis.",
+    work: "Work Experience: Click a specific company to learn more.",
+    education: "Education: MBA - University of Chicago Booth School of Business; B.Tech - NIT Trichy.",
+    contact: "Contact Info: Email - example@domain.com, Phone - 123-456-7890.",
     clear: "",
-    exit: "Exiting CLI mode... Redirecting to the main page.",
+    exit: "Refreshing the page...",
 };
 
 // DOM Elements
-const inputField = document.getElementById("input");
 const outputDiv = document.getElementById("output");
+const inputField = document.getElementById("input");
 
-// CLI Command Handling
+// Handle Typing and Clickable Commands
 inputField.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
-        const input = inputField.value.trim().toLowerCase();
-        const commandOutput = commands[input] || `Command not found: ${input}`;
-        if (input === "clear") {
-            outputDiv.innerHTML = "";
-        } else if (input === "exit") {
-            outputDiv.innerHTML += `> ${input}\n${commandOutput}\n`;
-            setTimeout(() => alert("Exiting CLI..."), 1000);
-        } else {
-            outputDiv.innerHTML += `> ${input}\n${commandOutput}\n\n`;
-        }
-        inputField.value = "";
-        outputDiv.scrollTop = outputDiv.scrollHeight;
+        const command = inputField.value.trim().toLowerCase();
+        processCommand(command);
+        inputField.value = ""; // Clear input
     }
 });
+
+outputDiv.addEventListener("click", (event) => {
+    if (event.target.classList.contains("command")) {
+        const command = event.target.dataset.command;
+        processCommand(command);
+    }
+});
+
+// Process Command Function
+function processCommand(command) {
+    const commandOutput = commands[command] || `Command not found: ${command}`;
+    if (command === "clear") {
+        outputDiv.innerHTML = ""; // Clear the terminal
+    } else if (command === "exit") {
+        outputDiv.innerHTML += `
+            <div class="line">&gt; ${command}</div>
+            <div class="line">${commandOutput}</div>`;
+        setTimeout(() => location.reload(), 1000); // Refresh page
+    } else {
+        outputDiv.innerHTML += `
+            <div class="line">&gt; ${command}</div>
+            <div class="line">${commandOutput}</div>`;
+    }
+    outputDiv.scrollTop = outputDiv.scrollHeight; // Auto-scroll to bottom
+}

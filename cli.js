@@ -68,8 +68,8 @@ Education:<br>
     contact: `
 Contact Info:<br>
 <ul>
-    <li>Email: example@domain.com</li>
-    <li>Phone: 123-456-7890</li>
+    <li>Email: dkamath0@chicagobooth.edu</li>
+
 </ul>`,
     clear: "",
     exit: "Refreshing the page..."
