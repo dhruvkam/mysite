@@ -1,0 +1,63 @@
+/* General Styling */
+body {
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    color: #0f0;
+}
+
+/* CLI Container */
+.cli-container {
+    width: 80%;
+    max-width: 800px;
+    background: #111;
+    border: 1px solid #0f0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cli-output {
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 14px;
+    white-space: pre-wrap;
+}
+
+.cli-input {
+    width: 100%;
+    padding: 5px;
+    background: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+    outline: none;
+}
+
+/* Animations */
+.line {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.command {
+    color: #00ff00;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.command:hover {
+    color: #fff;
+}
