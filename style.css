@@ -1,63 +1,49 @@
-/* General Styling */
 body {
-    font-family: monospace;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #000;
-    color: #0f0;
+    font-family: "Courier New", monospace;
+    background-color: black;
+    color: green;
 }
 
-/* CLI Container */
-.cli-container {
-    width: 80%;
-    max-width: 800px;
-    background: #111;
-    border: 1px solid #0f0;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-.cli-output {
-    height: 400px;
-    overflow-y: auto;
-    margin-bottom: 10px;
-    padding: 5px;
-    font-size: 14px;
-    white-space: pre-wrap;
-}
-
-.cli-input {
+#cli-mode {
+    display: block;
+    position: relative;
     width: 100%;
-    padding: 5px;
-    background: #000;
-    color: #0f0;
-    border: 1px solid #0f0;
-    outline: none;
+    height: 100%;
+    padding: 10px;
+    overflow-y: auto; /* Allows vertical scrolling */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    box-sizing: border-box; /* Ensures padding is included in width */
 }
 
-/* Animations */
+#output {
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Breaks long words */
+    overflow-wrap: anywhere; /* Prevents horizontal overflow for long text */
+}
+
 .line {
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+    margin-bottom: 10px;
 }
 
 .command {
-    color: #00ff00;
-    text-decoration: underline;
+    color: lime;
     cursor: pointer;
 }
 
 .command:hover {
-    color: #fff;
+    text-decoration: underline;
+}
+
+#input {
+    width: 100%;
+    background: black;
+    border: none;
+    color: green;
+    font-family: "Courier New", monospace;
+    outline: none;
+    padding: 10px;
+    margin-top: 10px;
+    box-sizing: border-box; /* Ensures padding is included in width */
 }
