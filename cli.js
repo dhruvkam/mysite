@@ -11,7 +11,7 @@ Available commands:<br>
     <li><span class='command' data-command="clear">clear</span>: Clear the terminal</li>
     <li><span class='command' data-command="exit">exit</span>: Refresh the page</li>
 </ul>`,
-    about: "I am a Senior Product Manager with expertise in Generative AI and digital growth strategies.",
+    about: "I am a Senior Product Manager passionate about solving complex problems with first principles and collaborating with diverse teams.",
     skills: `
 Technical Skills:<br>
 <ul>
@@ -31,31 +31,33 @@ Work Experience:<br>
 </ul>`,
     walmart: `
 <ul>
-    <li>Launched a Generative AI chatbot analyzing $130B in expenses.</li>
-    <li>Developed an AI-driven forecasting platform managing $10B+ in decisions.</li>
+    <li>Launched a Generative AI chatbot analyzing $130B in expenses, projected to reduce discretionary spending by 5%.</li>
+    <li>Developed an AI-driven forecasting platform managing $10B+ in decisions, improving forecast accuracy by 20%.</li>
+    <li>Built a graph traversal tool that reduced lead times for scenario planning by 40%.</li>
 </ul>`,
     sandbox: `
 <ul>
-    <li>Led the GTM launch of a cryptographic platform.</li>
-    <li>Reduced lead time to deployment by 50% using streamlined processes.</li>
+    <li>Led the GTM launch of an open-source cryptographic library adopted by 500+ developers globally.</li>
+    <li>Reduced lead time for product feature requests by 30% through a streamlined process you designed.</li>
+    <li>Drove beta testing with 50+ clients, improving release quality and client satisfaction scores.</li>
 </ul>`,
     cuemath: `
 <ul>
-    <li>Executed a Product-Led growth strategy that increased Net Promoter Score (NPS) by 45% and monthly revenue by 50%. Led team of 4 engineers and 2 designers to take platform from MVP to public launch in 4 weeks and reach 100,000+ users.</li>
-    <li>Led the growth funnel, including acquisition and engagement by delivering an AI-driven experimentation tool to enable the sales team to deliver a personalized pitch to each customer. Increased monthly subscribers by 50% and revenue by 35%.</li>
-    <li>Designed and executed A/B experiments and 30+ user interviews to improve gamification system resulting in 20% increase in module completion rate and 25% increase in Customer Satisfaction (CSAT).</li>
-    <li>Identified and solved 12 major technical debts in 5 weeks leading to 85% reduction in monthly customer complaints. Redesigned customer feedback process to provide live feedback to product owners, decreasing Time-To-Resolution (TTR) by 25%.</li>
+    <li>Executed a Product-Led growth strategy, increasing Net Promoter Score (NPS) by 45% and monthly revenue by 50%.</li>
+    <li>Designed gamification features after 30+ user interviews, resulting in a 20% increase in engagement and 25% boost in satisfaction scores.</li>
+    <li>Built custom dashboards for the sales team to deliver personalized pitches, increasing monthly subscribers by 50%.</li>
 </ul>`,
     centralsquare: `
 <ul>
-    <li>Scoped, planned and executed $80M project to deploy EdTech software and hardware across 5,000 schools. Informed rollout through Human Centered Design study with 300 students resulting in average 1.5 grade level improvement in learning outcomes.</li>
-    <li>Executed randomized control A/B experiments across 500+ schools to optimize program delivery. Reduced program delivery cost by $1M and mean time-to-deployment by 10 days (or 33% of initial deployment time).</li>
-    <li>Launched the website IndiaEdTech.org from concept to roll-out in 14 days leading a team of 2 developers and 1 designer. Website enabled 4 Indian state governments and 1M+ users to access free EdTech services for school students.</li>
+    <li>Scoped and executed a $80M project to deploy EdTech solutions across 5,000 schools, improving learning outcomes by 1.5 grade levels.</li>
+    <li>Reduced program delivery costs by $1M by optimizing deployment workflows across 500+ schools.</li>
+    <li>Conceptualized and launched IndiaEdTech.org in 14 days, enabling access to free EdTech services for over 1M+ users.</li>
 </ul>`,
     teachforindia: `
 <ul>
-    <li>Increased average math score of 57 high-school students from 12% to 65% in two years and achieved a 96% class pass rate.</li>
-    <li>Developed a python-based tool to automatically send text messages to parents communicating their child's performance on homework and exams, leading to 35% increase in student attendance and 70% increase in homework completion rates.</li>
+    <li>Improved math scores of 57 students from an average of 12% to 65% in two years, achieving a 96% class pass rate.</li>
+    <li>Developed a Python-based tool to send personalized performance updates to parents, increasing attendance by 35% and homework completion by 70%.</li>
+    <li>Mentored students on personal challenges, leading to improved classroom engagement and individual growth.</li>
 </ul>`,
     education: `
 Education:<br>
@@ -74,7 +76,6 @@ Contact Info:<br>
 };
 
 // DOM Elements
-const cliContainer = document.getElementById("cli-mode");
 const inputField = document.getElementById("input");
 const outputDiv = document.getElementById("output");
 
@@ -118,5 +119,5 @@ function processCommand(command) {
 
 // Scroll to Bottom
 function scrollToBottom() {
-    cliContainer.scrollTop = cliContainer.scrollHeight;
+    outputDiv.scrollTop = outputDiv.scrollHeight;
 }
